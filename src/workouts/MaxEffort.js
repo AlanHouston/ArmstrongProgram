@@ -53,3 +53,40 @@ class MaxEffort extends Component{
 }
 
 export default MaxEffort;
+
+// let setOne=
+//         <form>
+//             <div>
+//                 <input onChange={(e)=>{
+//                     e.preventDefault();
+//                     let newSet=this.state.whichSet+1;
+//                     const one = {one: e.target.value}
+//                     this.sets.one=e.target.value;
+//                     this.setState({
+//                         one: Object.assign(this.state.one, one),
+//                         whichSet:newSet
+//                     })
+//                 }}
+//                 />
+//                 <input type="submit" onSubmit={(e)=>{
+//                     e.preventDefault();
+//                     setOne = this.state.one
+//                 }}/>
+//             </div>
+//         </form>
+
+//         let setTwo=
+//         <form>
+//             <div>
+//                 <input onChange={(e)=>{
+//                     e.preventDefault();
+//                     let newSet=this.state.whichSet+1
+//                     this.setState({
+//                         two:e.target.value,
+//                         whichSet:newSet
+//                     })
+//                 }}
+//                 />
+//                 <input type="submit"/>
+//             </div>
+//         </form>

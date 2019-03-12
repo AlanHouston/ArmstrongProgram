@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './Home'
 import DaySelector from './DaySelector'
+import Stats from './stats/index'
 
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
       whatToRender = <DaySelector />
     }
     else if(this.state.whatToDisplay === 2){
-      // whatToRender = <Stats />
+      whatToRender = <Stats />
     }
     return (
       <div className="App">
