@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './Home'
+import DaySelector from './DaySelector'
+
 
 class App extends Component {
+  state={
+    whatToDisplay: 0,
+  }
+
+  changeView = (view)=>{
+    this.setState({whatToDisplay:view})
+  }
+
   render() {
+    let whatToRender = null;
+    if(this.state.whatToDisplay === 0){
+      whatToRender = <Home changeView={this.changeView}/>
+    }
+    else if(this.state.whatToDisplay === 1){
+      whatToRender = <DaySelector />
+    }
+    else if(this.state.whatToDisplay === 2){
+      // whatToRender = <Stats />
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {whatToRender}
       </div>
     );
   }
