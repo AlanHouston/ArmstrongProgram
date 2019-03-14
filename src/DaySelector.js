@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DaySelectorHome from './DaySelectorHome';
-import MaxEffort from './workouts/MaxEffort'
+import MaxEffort from './workouts/maxeffort/MaxEffort'
 import Pyramid from './workouts/Pyramid'
 import GripSwitch from './workouts/GripSwitch'
 import MaxDay from './workouts/MaxDay'
