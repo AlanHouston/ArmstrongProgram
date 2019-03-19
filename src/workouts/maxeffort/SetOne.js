@@ -2,24 +2,22 @@ import React from 'react'
 
 function SetOne(props){
     let content=(
-        <div>
+        <form onSubmit={(e)=>{e.preventDefault()}}>
             <input onChange={(e)=>{
-            e.preventDefault();
             let reps=e.target.value;
-            props.sets.push(reps);
-            
-            
-            
-            }}
-            />
-            <input type="submit" onSubmit={(e)=>{
-                e.preventDefault();
-                
+            this.setState({sets:[...this.sets,reps]})
+            //remove component so can set local state in MaxEffort!
             }}/>
-        </div>
+            <input type='submit' onClick={()=>{
+                content=props.sets[0]
+            }}></input>
+        </form>
+        
     )
     return (
-        
+        <div>
+            {content}
+        </div>
     );
 }
 

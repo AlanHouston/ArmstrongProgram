@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
-import SetOne from './SetOne';
-import SetTwo from './SetTwo';
-import SetThree from './SetThree';
-import SetFour from './SetFour';
-import SetFive from './SetFive';
+// import SetOne from './SetOne';
+// import SetTwo from './SetTwo';
+// import SetThree from './SetThree';
+// import SetFour from './SetFour';
+// import SetFive from './SetFive';
 
 
 class MaxEffort extends Component{
-    sets=[]
+    state={
+        sets:[],
+    }
+
+    showInputBox(){
+        return (
+            <form onSubmit={(e)=>{e.preventDefault()}}>
+                <input onChange={(e)=>{
+                let reps=e.target.value;
+                this.setState({sets:[...this.sets,reps]})
+                }}/>
+                <button type='submit' onClick={()=>{
+                    let set = this.state.sets.length;
+                    this.showReps(set);
+                }}></button>
+            </form>
+        )
+    }
+
+    showReps=(set)=>{
+        return(this.state.sets[set])
+    }
     
     render(){
         
@@ -17,17 +38,12 @@ class MaxEffort extends Component{
                 <h3>5 max effort sets</h3>
                 <h2>REST</h2>
                 <h3>90 seconds</h3>
-                <SetOne sets={this.sets}/>
-                {/* <SetTwo />
-                <SetThree />
-                <SetFour />
-                <SetFive /> */}
-                {/* <div>{whatToShow}</div> */}
-                {/* <div>Set 1 {setOne}</div>
-                <div>Set 2 {setTwo}</div>
-                <div>Set 3 {setThree}</div>
-                <div>Set 4 {setFour}</div>
-                <div>Set 5 {setFive}</div> */}
+                <div>Set One {this.showInputBox}</div>
+                <div>Set Two {this.showInputBox}</div>
+                <div>Set Three {this.showInputBox}</div>
+                <div>Set Four {this.showInputBox}</div>
+                <div>Set Five {this.showInputBox}</div>
+                
             </div>
         );
         }
