@@ -43,6 +43,7 @@ class MaxEffort extends Component{
                 <div>Set Three {this.showInputBox}</div>
                 <div>Set Four {this.showInputBox}</div>
                 <div>Set Five {this.showInputBox}</div>
+                {/* completed button at bottom */}
                 
             </div>
         );
