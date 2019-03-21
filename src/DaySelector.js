@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DaySelectorHome from './DaySelectorHome';
 import MaxEffort from './workouts/maxeffort/MaxEffort'
-import Pyramid from './workouts/Pyramid'
+import Pyramid from './workouts/pyramid/Pyramid'
 import GripSwitch from './workouts/GripSwitch'
 import MaxDay from './workouts/MaxDay'
 // import DayFive from './DayFive'

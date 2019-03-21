@@ -5,6 +5,7 @@ var pyramidSchema = new mongoose.Schema({
     missedSet:Number,
     //"how many did you do on the missed set?"
     lastSet:Number,
+    max:Number,
     total:Number
 })
 
