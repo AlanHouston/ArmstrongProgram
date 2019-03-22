@@ -11,23 +11,31 @@ class Pyramid extends Component{
     }
     
     componentDidMount(){
+        let dateArray=[]
         let missedArray=[];
         let lastArray=[];
+        let maxArray=[];
         let totalArray=[];
         fetch("http://localhost:3000/pyramid")
             .then(r=>r.json())
-            .then(d=>
+            .then(d=>{
                 d.map(t=>{
+                    dateArray.push(t.date)
                     missedArray.push(t.missedSet)
                     lastArray.push(t.lastSet)
+                    maxArray.push(t.max)
                     totalArray.push(t.total)
-                }))
-        this.setState({
-            missed:missedArray,
-            last:lastArray,
-            total:totalArray
-        });
+                })
+                this.setState({
+                    date:dateArray,
+                    missed:missedArray,
+                    last:lastArray,
+                    max:maxArray,
+                    total:totalArray
+                })
+            })
     }
+
 
     // return(
     //     <div key={data.id}>
@@ -37,7 +45,6 @@ class Pyramid extends Component{
 
     render(){
         
-
         return (
             <div className="App">
                 <h1>DAY 2: PYRAMID</h1>

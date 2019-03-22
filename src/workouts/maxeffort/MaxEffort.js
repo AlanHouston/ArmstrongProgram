@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-// import SetOne from './SetOne';
-// import SetTwo from './SetTwo';
-// import SetThree from './SetThree';
-// import SetFour from './SetFour';
-// import SetFive from './SetFive';
-
 
 class MaxEffort extends Component{
     state={
         sets:[],
+    }
+
+    componentDidMount(){
+        
     }
 
     showInputBox(){
@@ -43,7 +41,7 @@ class MaxEffort extends Component{
                 <div>Set Three {this.showInputBox}</div>
                 <div>Set Four {this.showInputBox}</div>
                 <div>Set Five {this.showInputBox}</div>
-                {/* completed button at bottom */}
+                {/* completed button at bottom?? */}
                 
             </div>
         );
