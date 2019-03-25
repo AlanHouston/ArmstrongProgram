@@ -33,7 +33,7 @@ export default class MaxEffortInput extends Component{
         
         if(this.state.whatToShow === 0){
         this.content=
-            <form name="theForm"onSubmit={(e)=>{
+            <form onSubmit={(e)=>{
                 e.preventDefault();
                 let newSet={
                     method:"POST",
@@ -50,7 +50,7 @@ export default class MaxEffortInput extends Component{
                 }
                 fetch("http://localhost:3000/maxeffort", newSet).then((res)=>{
                     return res.json();
-                })
+                }).then(this.changeContent(1))
                 }}>
                 Set One<input onChange={(e)=>{
                     this.setState({repsOne:e.target.value})
@@ -67,10 +67,8 @@ export default class MaxEffortInput extends Component{
                 Set Five<input onChange={(e)=>{
                     this.setState({repsFive:e.target.value})
                 }}/><br/>
-                <button type='submit' onClick={(e)=>{
-                    this.changeContent(1);
+                <button type='submit' onClick={()=>{    
                     this.getTotal();
-                    return false;
                 }}>Enter</button>
             </form>
         }else if(this.state.whatToShow === 1){

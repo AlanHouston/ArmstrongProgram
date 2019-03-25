@@ -40,13 +40,13 @@ export default class PyramidInput extends Component{
                     })
                 }
                 fetch("http://localhost:3000/pyramid", newSet).then((res)=>{
-                    return res.json();
+                    return res.json().then(this.changeContent(1));
                 })
                 }}>
                 Trying<input onChange={(e)=>{
                     this.setState({missed:e.target.value})
                 }}/>
-                <p>Which set were you attempting, but couldn't complete?</p><br/>
+                <p>Which set were you attempting, but did not complete?</p><br/>
 
                 Last Completed Rep<input onChange={(e)=>{
                     this.setState({last:e.target.value})
@@ -57,10 +57,8 @@ export default class PyramidInput extends Component{
                     this.setState({max:e.target.value})
                 }}/><br/>
                 
-                <button type='submit' onClick={(e)=>{
-                    this.changeContent(1);
+                <button type='submit' onClick={()=>{
                     this.getTotal();
-                    return false;
                 }}>Enter</button>
             </form>
         }
