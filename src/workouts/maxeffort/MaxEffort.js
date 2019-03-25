@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MaxEffortSets from './MaxEffortSets';
-import MaxEffortInputs from './MaxEffortInputs';
+import MaxEffortInput from './MaxEffortInput';
 
 class MaxEffort extends Component{
     state={
@@ -45,25 +45,6 @@ class MaxEffort extends Component{
             })
     }
 
-    // showInputBox(){
-    //     return (
-    //         <form onSubmit={(e)=>{e.preventDefault()}}>
-    //             <input onChange={(e)=>{
-    //             let reps=e.target.value;
-    //             this.setState({sets:[...this.sets,reps]})
-    //             }}/>
-    //             <button type='submit' onClick={()=>{
-    //                 let set = this.state.sets.length;
-    //                 this.showReps(set);
-    //             }}></button>
-    //         </form>
-    //     )
-    // }
-
-    // showReps=(set)=>{
-    //     return(this.state.sets[set])
-    // }
-    
     render(){
         
         return (
@@ -72,12 +53,7 @@ class MaxEffort extends Component{
                 <h3>5 max effort sets</h3>
                 <h2>REST</h2>
                 <h3>90 seconds</h3>
-                <div>Set One <MaxEffortInputs set={1}/></div>
-                <div>Set Two <MaxEffortInputs set={2}/></div>
-                <div>Set Three <MaxEffortInputs set={3}/></div>
-                <div>Set Four <MaxEffortInputs set={4}/></div>
-                <div>Set Five <MaxEffortInputs set={5}/></div>
-                {/* completed button at bottom?? */}
+                <MaxEffortInput/>
                 <MaxEffortSets
                     date={this.state.date} 
                     setOne={this.state.setOne} 
