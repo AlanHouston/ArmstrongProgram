@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PyramidSets from './PyramidSets'
-import PyramidInputs from './PyramidInputs';
+import PyramidInput from './PyramidInput';
 
 class Pyramid extends Component{
     state={
@@ -37,13 +37,6 @@ class Pyramid extends Component{
             })
     }
 
-
-    // return(
-    //     <div key={data.id}>
-    //         <div>{data.date}:Failed on{data.missedSet}, Last set{data.lastSet}</div>
-    //     </div>
-    // )
-
     render(){
         
         return (
@@ -52,17 +45,8 @@ class Pyramid extends Component{
                 <h3>Pyraimd of sets of 1, 2, 3, 4, etc. until missed set</h3>
                 <h3>Then one max set</h3>
                 <h2>REST</h2>
-                <h3>10 seconds for each pull-up in last set</h3>
-                <div>
-                    <h3>Trying</h3>
-                    <PyramidInputs/>
-                    <p>Which set were you attempting, but couldn't complete?</p>
-                    <h3>Last completed rep</h3>
-                    <PyramidInputs/>
-                    <p>In the failed set, which rep was the last one you completed</p>
-                    {/* or "how many reps did you complete on the failed/missed set?" */}
-                    <h3>Max Set Total Reps<PyramidInputs/></h3>
-                </div>
+                <h3>10 seconds for each pull-up in last set</h3><br/>
+                <PyramidInput />
                 <PyramidSets 
                     date={this.state.date} 
                     missed={this.state.missed} 

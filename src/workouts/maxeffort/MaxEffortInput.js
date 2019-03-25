@@ -8,6 +8,8 @@ export default class MaxEffortInput extends Component{
         repsThree:null,
         repsFour:null,
         repsFive:null,
+        total:null
+        //should I pull everything but whatToShow? All will get added when setState
     }
 
     content={}
@@ -16,18 +18,22 @@ export default class MaxEffortInput extends Component{
         this.setState({whatToShow:x})
     }
 
+    getTotal=()=>{
+        let total= Number(this.state.repsOne)
+        +Number(this.state.repsTwo)
+        +Number(this.state.repsThree)
+        +Number(this.state.repsFour)
+        +Number(this.state.repsFive);
+        this.setState({total})
+    }
+
     render(){
-        // let repsOne;
-        // let repsTwo;
-        // let repsThree;
-        // let repsFour;
-        // let repsFive;
         var date = new Date();
         var newDate= (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
         
         if(this.state.whatToShow === 0){
         this.content=
-            <form onSubmit={(e)=>{
+            <form name="theForm"onSubmit={(e)=>{
                 e.preventDefault();
                 let newSet={
                     method:"POST",
@@ -39,7 +45,7 @@ export default class MaxEffortInput extends Component{
                         setThree:this.state.repsThree,
                         setFour:this.state.repsFour,
                         setFive:this.state.repsFive,
-                        total: Number(this.state.repsOne)+Number(this.state.repsTwo)+Number(this.state.repsThree)+Number(this.state.repsFour)+Number(this.state.repsFive)
+                        total:this.state.total
                     })
                 }
                 fetch("http://localhost:3000/maxeffort", newSet).then((res)=>{
@@ -61,19 +67,24 @@ export default class MaxEffortInput extends Component{
                 Set Five<input onChange={(e)=>{
                     this.setState({repsFive:e.target.value})
                 }}/><br/>
-                <button type='submit' onClick={()=>{
-                    this.changeContent(1)
+                <button type='submit' onClick={(e)=>{
+                    this.changeContent(1);
+                    this.getTotal();
+                    return false;
                 }}>Enter</button>
             </form>
-        }else if(this.state.whatToShow ===1){
+        }else if(this.state.whatToShow === 1){
             this.content = 
                 <div>
-                    One: {this.state.repsOne}, 
-                    Two: {this.state.repsTwo}, 
-                    Three: {this.state.repsThree}, 
-                    Four: {this.state.repsFour}, 
-                    Five: {this.state.repsFive}, 
-                    Total: {Number(this.state.repsOne)+Number(this.state.repsTwo)+Number(this.state.repsThree)+Number(this.state.repsFour)+Number(this.state.repsFive)}
+                    <button>Home</button><br/>
+                    <div>This Session: 
+                        One: {this.state.repsOne}, 
+                        Two: {this.state.repsTwo}, 
+                        Three: {this.state.repsThree}, 
+                        Four: {this.state.repsFour}, 
+                        Five: {this.state.repsFive}, 
+                        Total: {this.state.total}
+                    </div>
                 </div>
         }
             
