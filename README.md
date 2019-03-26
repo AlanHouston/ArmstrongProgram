@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my first ever application!!
 
-## Available Scripts
+This is a basic tracker for the Armstrong program found here http://armstrongpullupprogram.com/.
 
-In the project directory, you can run:
+"This program was used by Major Charles Lewis Armstrong, USMC to prepare himself to attempt to set a world record in number of pull-ups completed in a single exercise session."
 
-### `npm start`
+There are four different workouts to be done in five consecutive days; the final day workout is chosen by the user as the toughest of the four workouts in that particular week. User is instructed to rest the other two days of the week
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I decided to create this app because I occasionally participate in the program and get frustrated with having to refer to a note on my phone to access previous data in order to compare results.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+In the appliction, for each workout, past data automatically reloads a the bottom of the page for easy access to dates, which sets, how many, etc.
 
-### `npm test`
+Functionality is basic for now, but the data is maintained in mlab.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Functionality to come:
+*Styling
+*Client side routing
+*Edit buttons: User is currently unable to edit their current session data upon completion
+*Pushup tracker: the program requires three max sets of pushups every morning of the five workout days
 
-### `npm run build`
+I encourage everyone to give this program a shot! If the program is too advanced, the creator has a beginner program found here http://armstrongpullupprogram.com/the-pre-armstrong-workout-for-pull-up-beginners/. 
+If your arms are huge, you are a very strong person or you find this program elementary, he also created and advanced program found here http://armstrongpullupprogram.com/armstrong-advanced/.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I have not created an app for these, but I might some day! 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Thanks for checking out my handsome coding!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
