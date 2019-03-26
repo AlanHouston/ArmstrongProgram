@@ -15,7 +15,9 @@ exports.create =  function create(req, res) {
         overHandReps:req.body.overHandReps,
         inwardReps:req.body.inwardReps,
         wideReps:req.body.wideReps,
-        numberOfSets:req.body.numberOfSets,
+        overHandSets:req.body.overHandSets,
+        inwardSets:req.body.inwardSets,
+        wideSets:req.body.wideSets,
         total:req.body.total
     });
     newGripSwitch.save();

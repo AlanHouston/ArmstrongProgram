@@ -1,14 +1,13 @@
 import React from 'react'
 
-export default function PyramidSets(props){
+export default function MaxDaySets(props){
     let showSets;
     if(props.date.length>0){
     showSets=props.date.map((d,i)=>{
         return <p key={i}>
-        {d}:Trying {props.missed[i]}, 
-        Failed on: {props.last[i]}, 
-        Max: {props.max[i]}, 
-        Total: {props.total[i]}
+        {d}: {props.totalSets[i]} Full sets of {props.reps[i]}, 
+        Remainder {props.lastSet[i]},
+        Total {props.total[i]}
         </p>
     }
     )}

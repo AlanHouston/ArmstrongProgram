@@ -5,10 +5,9 @@ function GripSwitchSets(props){
     if(props.date.length>0){
         showSets=props.date.map((d,i)=>{
             return <p key={i}>
-            {d}: Overhand Reps: {props.overHandReps[i]}, 
-            Inward Facing Reps: {props.inwardReps[i]}, 
-            Wide Grip Reps: {props.wideReps[i]}, 
-            Total sets of each: {props.numberOfSets[i]}, 
+            {d}: Overhand Reps: {props.overHandSets[i]} sets of {props.overHandReps[i]}; 
+            Inward Facing Reps:{props.inwardSets[i]} sets of {props.inwardReps[i]};
+            Wide Grip Reps: {props.wideSets[i]} sets of {props.wideReps[i]};
             Total: {props.total[i]}
             </p>
         }

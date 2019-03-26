@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 
-export default class PyramidInput extends Component{
+export default class PyramidInputs extends Component{
     state={
         whatToShow:0,
-        missed:null,
-        last:null,
-        max:null,
-        total:null
     }
+
     content={}
 
     changeContent=(x)=>{
@@ -56,7 +53,7 @@ export default class PyramidInput extends Component{
                 Max Set Total Reps<input onChange={(e)=>{
                     this.setState({max:e.target.value})
                 }}/><br/>
-                
+
                 <button type='submit' onClick={()=>{
                     this.getTotal();
                 }}>Enter</button>
@@ -72,6 +69,8 @@ export default class PyramidInput extends Component{
                         Max: {this.state.max}, 
                         Total: {this.state.total}
                     </div>
+                    {/* <button onClick={()=>{this.changeContent(0)}}>Edit</button> */}
+                    {/* Will need to move the fetch call to the Home button when implementing edit button */}
                 </div>
         }
         return(

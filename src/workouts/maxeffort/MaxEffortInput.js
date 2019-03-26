@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 export default class MaxEffortInput extends Component{
     state={
         whatToShow:0,
-        repsOne:null,
-        repsTwo:null,
-        repsThree:null,
-        repsFour:null,
-        repsFive:null,
-        total:null
+        // repsOne:null,
+        // repsTwo:null,
+        // repsThree:null,
+        // repsFour:null,
+        // repsFive:null,
+        // total:null
         //should I pull everything but whatToShow? All will get added when setState
     }
 

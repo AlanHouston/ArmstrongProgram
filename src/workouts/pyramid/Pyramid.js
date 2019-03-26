@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PyramidSets from './PyramidSets'
-import PyramidInput from './PyramidInput';
+import PyramidInputs from './PyramidInputs';
 
 class Pyramid extends Component{
     state={
@@ -20,7 +20,7 @@ class Pyramid extends Component{
         fetch("http://localhost:3000/pyramid")
             .then(r=>r.json())
             .then(d=>{
-                d.map(t=>{
+                d.reverse().map(t=>{
                     dateArr.push(t.date)
                     missedArr.push(t.missedSet)
                     lastArr.push(t.lastSet)
@@ -46,7 +46,7 @@ class Pyramid extends Component{
                 <h3>Then one max set</h3>
                 <h2>REST</h2>
                 <h3>10 seconds for each pull-up in last set</h3><br/>
-                <PyramidInput />
+                <PyramidInputs />
                 <PyramidSets 
                     date={this.state.date} 
                     missed={this.state.missed} 

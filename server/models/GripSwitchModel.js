@@ -5,7 +5,9 @@ var gripSwitchSchema = new mongoose.Schema({
     overHandReps: Number,
     inwardReps: Number,
     wideReps: Number,
-    numberOfSets: Number,
+    overHandSets: Number,
+    inwardSets: Number,
+    wideSets: Number,
     total: Number
 })
 

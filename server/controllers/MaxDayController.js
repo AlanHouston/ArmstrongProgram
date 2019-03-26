@@ -14,6 +14,7 @@ exports.create =  function create(req, res) {
         date:newDate,
         reps:req.body.reps,
         totalSets:req.body.totalSets,
+        lastSet:req.body.lastSet,
         total:req.body.total
     });
     newMaxDay.save();
