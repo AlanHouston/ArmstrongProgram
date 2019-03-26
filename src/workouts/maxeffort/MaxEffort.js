@@ -24,7 +24,7 @@ class MaxEffort extends Component{
         fetch("http://localhost:3000/maxeffort")
             .then(r=>r.json())
             .then(d=>{
-                d.map(t=>{
+                d.reverse().map(t=>{
                     dateArr.push(t.date)
                     setOneArr.push(t.setOne)
                     setTwoArr.push(t.setTwo)

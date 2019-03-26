@@ -15,6 +15,7 @@ Functionality is basic for now, but the data is maintained in mlab.
 Functionality to come:
 *Styling
 *Client side routing
+*authentication
 *Edit buttons: User is currently unable to edit their current session data upon completion
 *Pushup tracker: the program requires three max sets of pushups every morning of the five workout days
 
