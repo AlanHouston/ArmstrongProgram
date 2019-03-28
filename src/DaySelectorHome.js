@@ -13,6 +13,7 @@ export function DaySelectorHome(props){
         <br/>
         <button onClick={()=>props.changeView(4)}>Day 4 : Max Day</button>
         <br/>
+        <p>On Day 5, repeat the workout you felt was hardest each week</p>
         {/* <button onClick={()=>props.changeView(5)}>Day 5 : Hardest</button> */}
     </div>
     );
