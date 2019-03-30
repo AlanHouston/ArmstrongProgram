@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './Home'
-import DaySelector from './DaySelector'
+import PullUp from './PullUp'
+import PushUp from './workouts/pushup/PushUp'
 import Stats from './stats/index'
 
 
@@ -20,9 +21,12 @@ class App extends Component {
       whatToRender = <Home changeView={this.changeView}/>
     }
     else if(this.state.whatToDisplay === 1){
-      whatToRender = <DaySelector />
+      whatToRender = <PullUp />
     }
     else if(this.state.whatToDisplay === 2){
+      whatToRender = <PushUp />
+    }
+    else if(this.state.whatToDisplay === 3){
       whatToRender = <Stats />
     }
     return (

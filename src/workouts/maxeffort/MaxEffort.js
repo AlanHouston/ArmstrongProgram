@@ -63,7 +63,6 @@ class MaxEffort extends Component{
                     setFive={this.state.setFive} 
                     total={this.state.total}
                 />
-                
             </div>
         );
         }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function DaySelectorHome(props){
+export function PullUpHome(props){
     
     return (
         <div className="App">
@@ -19,4 +19,4 @@ export function DaySelectorHome(props){
     );
 }
 
-export default DaySelectorHome
+export default PullUpHome;

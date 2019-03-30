@@ -9,6 +9,7 @@ const MaxEffortRoutes = require("./routes/MaxEffortRoutes");
 const PyramidRoutes = require("./routes/PyramidRoutes");
 const GripSwitchRoutes = require("./routes/GripswitchRoutes");
 const MaxDayRoutes = require("./routes/MaxDayRoutes");
+const PushUpRoutes = require("./routes/PushUpRoutes");
 
 //to allow fetch calls to localhost:3000
 app.use(function(req, res, next) {
@@ -22,6 +23,7 @@ app.use(MaxEffortRoutes);
 app.use(PyramidRoutes);
 app.use(GripSwitchRoutes);
 app.use(MaxDayRoutes);
+app.use(PushUpRoutes);
 
 // app.use(express.static('public'))
 

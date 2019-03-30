@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import DaySelectorHome from './DaySelectorHome';
+import PullUpHome from './PullUpHome';
 import MaxEffort from './workouts/maxeffort/MaxEffort'
 import Pyramid from './workouts/pyramid/Pyramid'
 import GripSwitch from './workouts/gripswitch/GripSwitch'
 import MaxDay from './workouts/maxday/MaxDay'
 // import DayFive from './DayFive'
 
-class DaySelector extends Component{
+class PullUp extends Component{
     state={
         whatToDisplay: 0,
     }
@@ -18,7 +18,7 @@ class DaySelector extends Component{
     render(){
         let whatToRender = null;
         if(this.state.whatToDisplay ===0){
-            whatToRender = <DaySelectorHome changeView={this.changeView}/>
+            whatToRender = <PullUpHome changeView={this.changeView}/>
         }
         if(this.state.whatToDisplay ===1){
             whatToRender = <MaxEffort changeView={this.changeView}/>
@@ -44,4 +44,4 @@ class DaySelector extends Component{
     }
 }
 
-export default DaySelector;
+export default PullUp;
