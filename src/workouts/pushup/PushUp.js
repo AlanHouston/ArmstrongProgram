@@ -41,6 +41,7 @@ export default class PushUp extends Component{
     render(){
         return(
             <div className="App">
+                <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
                 <h1>EVERY DAY!</h1>
                 <h3>3 max effort sets</h3>
                 <h3>Each set should be separated by at least 10 minutes</h3>

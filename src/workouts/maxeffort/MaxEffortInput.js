@@ -45,29 +45,28 @@ export default class MaxEffortInput extends Component{
                     return res.json();
                 }).then(this.changeContent(1))
                 }}>
-                Set One<input onChange={(e)=>{
+                Set One<input type="number" onChange={(e)=>{
                     this.setState({repsOne:e.target.value})
                 }}/><br/>
-                Set Two<input onChange={(e)=>{
+                Set Two<input type="number" onChange={(e)=>{
                     this.setState({repsTwo:e.target.value})
                 }}/><br/>
-                Set Three<input onChange={(e)=>{
+                Set Three<input type="number" onChange={(e)=>{
                     this.setState({repsThree:e.target.value})
                 }}/><br/>
-                Set Four<input onChange={(e)=>{
+                Set Four<input type="number" onChange={(e)=>{
                     this.setState({repsFour:e.target.value})
                 }}/><br/>
-                Set Five<input onChange={(e)=>{
+                Set Five<input type="number" onChange={(e)=>{
                     this.setState({repsFive:e.target.value})
                 }}/><br/>
-                <button type='submit' onClick={()=>{    
+                <button className="homeButton" type='submit' onClick={()=>{    
                     this.getTotal();
                 }}>Enter</button>
             </form>
         }else if(this.state.whatToShow === 1){
             this.content = 
                 <div>
-                    <button>Home</button><br/>
                     <div>This Session: 
                         One: {this.state.repsOne}, 
                         Two: {this.state.repsTwo}, 

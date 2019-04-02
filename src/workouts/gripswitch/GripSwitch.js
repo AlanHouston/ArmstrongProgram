@@ -52,6 +52,7 @@ class GripSwitch extends Component{
     render(){
         return (
             <div className="App">
+                <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
                 <h1>DAY 3: GRIP SWITCH</h1>
                 <h3>3 sets overhand</h3>
                 <h3>3 sets palms inward, pinkies together</h3>

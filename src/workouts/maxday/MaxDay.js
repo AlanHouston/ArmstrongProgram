@@ -46,6 +46,7 @@ export default class MaxDay extends Component{
     render(){
         return (
         <div className="App">
+            <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
             <h1>DAY 4: MAX DAY</h1>
             <h3>Max number of training sets</h3>
             <h2>REST</h2>

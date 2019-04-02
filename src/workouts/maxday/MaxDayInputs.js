@@ -39,21 +39,21 @@ export default class MaxDay extends Component{
                     return res.json().then(this.changeContent(1));
                 })
                 }}>
-                Reps per Set<input onChange={(e)=>{
+                Reps per Set<input type="number" onChange={(e)=>{
                     this.setState({reps:e.target.value})
                 }}/>
                 <br/>
 
-                Total Number of Complete Sets<input onChange={(e)=>{
+                Total Number of Complete Sets<input type="number" onChange={(e)=>{
                     this.setState({totalSets:e.target.value})
                 }}/>
                 <br/>
 
-                If your final set was incomplete, how many reps did you complete?<input onChange={(e)=>{
+                If your final set was incomplete, how many reps did you complete?<input type="number" onChange={(e)=>{
                     this.setState({lastSet:e.target.value})
                 }}/><br/>
 
-                <button type='submit' onClick={()=>{
+                <button className="homeButton" type='submit' onClick={()=>{
                     this.getTotal();
                 }}>Enter</button>
             </form>

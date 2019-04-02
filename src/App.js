@@ -21,13 +21,13 @@ class App extends Component {
       whatToRender = <Home changeView={this.changeView}/>
     }
     else if(this.state.whatToDisplay === 1){
-      whatToRender = <PullUp />
+      whatToRender = <PullUp changeView={this.changeView}/>
     }
     else if(this.state.whatToDisplay === 2){
-      whatToRender = <PushUp />
+      whatToRender = <PushUp changeView={this.changeView}/>
     }
     else if(this.state.whatToDisplay === 3){
-      whatToRender = <Stats />
+      whatToRender = <Stats changeView={this.changeView}/>
     }
     return (
       <div className="App">

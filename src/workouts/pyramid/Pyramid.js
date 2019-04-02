@@ -41,6 +41,7 @@ class Pyramid extends Component{
         
         return (
             <div className="App">
+                <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
                 <h1>DAY 2: PYRAMID</h1>
                 <h3>Pyraimd of sets of 1, 2, 3, 4, etc. until missed set</h3>
                 <h3>Then one max set</h3>

@@ -41,16 +41,16 @@ export default class PushUpInput extends Component{
                     return res.json();
                 }).then(this.changeContent(1))
                 }}>
-                Set One<input onChange={(e)=>{
+                Set One<input type="number" onChange={(e)=>{
                     this.setState({one:e.target.value})
                 }}/><br/>
-                Set Two<input onChange={(e)=>{
+                Set Two<input type="number" onChange={(e)=>{
                     this.setState({two:e.target.value})
                 }}/><br/>
-                Set Three<input onChange={(e)=>{
+                Set Three<input type="number" onChange={(e)=>{
                     this.setState({three:e.target.value})
                 }}/><br/>
-                <button type='submit' onClick={()=>{    
+                <button className="homeButton" type='submit' onClick={()=>{    
                     this.getTotal();
                 }}>Enter</button>
             </form>

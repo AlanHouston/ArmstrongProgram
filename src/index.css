@@ -12,3 +12,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.buttonStyle{
+  background-color: grey;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+  margin: 10px;
+}
+
+.homeButton{
+  background-color: grey;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+input{
+  width: 35px;
+}
+

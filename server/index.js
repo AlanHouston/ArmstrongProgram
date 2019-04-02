@@ -25,10 +25,11 @@ app.use(GripSwitchRoutes);
 app.use(MaxDayRoutes);
 app.use(PushUpRoutes);
 
-// app.use(express.static('public'))
-
+//for local use:
 app.listen(3000, (err)=>{
     if (err) {
         return console.log("Error", err);
       }
 })
+
+//heroku:

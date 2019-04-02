@@ -11,30 +11,27 @@ class PullUp extends Component{
         whatToDisplay: 0,
     }
     
-    changeView = (view)=>{
+    changePullUpView = (view)=>{
         this.setState({whatToDisplay:view})
     }
 
     render(){
         let whatToRender = null;
         if(this.state.whatToDisplay ===0){
-            whatToRender = <PullUpHome changeView={this.changeView}/>
+            whatToRender = <PullUpHome changePullUpView={this.changePullUpView}/>
         }
         if(this.state.whatToDisplay ===1){
-            whatToRender = <MaxEffort changeView={this.changeView}/>
+            whatToRender = <MaxEffort changeView={this.props.changeView}/>
         }
         if(this.state.whatToDisplay ===2){
-            whatToRender = <Pyramid changeView={this.changeView}/>
+            whatToRender = <Pyramid changeView={this.props.changeView}/>
         }
         if(this.state.whatToDisplay ===3){
-            whatToRender = <GripSwitch changeView={this.changeView}/>
+            whatToRender = <GripSwitch changeView={this.props.changeView}/>
         }
         if(this.state.whatToDisplay ===4){
-            whatToRender = <MaxDay changeView={this.changeView}/>
+            whatToRender = <MaxDay changeView={this.props.changeView}/>
         }
-        // if(this.state.whatToDisplay ===5){
-        //     whatToRender = <DayFive changeView={this.changeView} toggleDayFive={this.state.toggleDayFive}/>
-        // }
 
         return (
             <div className="App">

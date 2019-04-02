@@ -45,37 +45,37 @@ export default class GripSwitchInputs extends Component{
                 })
                 }}>
 
-                Reps per Overhand Set<input onChange={(e)=>{
+                Reps per Overhand Set<input type="number" onChange={(e)=>{
                     this.setState({over:e.target.value})
                 }}/>
                 <br/>
 
-                Total Overhand Sets<input onChange={(e)=>{
+                Total Overhand Sets<input type="number" onChange={(e)=>{
                     this.setState({overSets:e.target.value})
                 }}></input>
                 <br/>
 
-                Reps per Inward Facing Set<input onChange={(e)=>{
+                Reps per Inward Facing Set<input type="number" onChange={(e)=>{
                     this.setState({in:e.target.value})
                 }}/>
                 <br/>
 
-                Total Inward Facing Sets<input onChange={(e)=>{
+                Total Inward Facing Sets<input type="number" onChange={(e)=>{
                     this.setState({inSets:e.target.value})
                 }}></input>
                 <br/>
 
-                Reps per Wide Grip Set<input onChange={(e)=>{
+                Reps per Wide Grip Set<input type="number" onChange={(e)=>{
                     this.setState({wide:e.target.value})
                 }}/>
                 <br/>
 
-                Total Overhand Sets<input onChange={(e)=>{
+                Total Overhand Sets<input type="number" onChange={(e)=>{
                     this.setState({wideSets:e.target.value})
                 }}></input>
                 <br/>
 
-                <button type='submit' onClick={()=>{
+                <button className="homeButton" type='submit' onClick={()=>{
                     this.getTotal();
                 }}>Enter</button>
             </form>
