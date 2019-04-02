@@ -1,3 +1,7 @@
+*{
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -23,11 +27,37 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttonStyle{
+  background-color: grey;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+  margin: 10px;
 }
+
+.homeButton{
+  background-color: grey;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+input{
+  width: 35px;
+}
+
+#infoStyle{
+  margin-top: 35px;
+}
+
+#armHomeStyle{
+  padding: 5px;
+}
+
+#topButton{
+  margin-top: 30px;
+}
+
