@@ -5,9 +5,9 @@ export default function PushUpSets(props){
     if(props.date.length>0){
         showSets=props.date.map((d,i)=>{
             return <p key={i}>
-            {d}: One: {props.one[i]}, 
-            Two: {props.two[i]}, 
-            Three: {props.three[i]}, 
+            {d}: &#40;1&#41;: {props.one[i]}, 
+            &#40;2&#41;: {props.two[i]}, 
+            &#40;3&#41;: {props.three[i]}, 
             Total: {props.total[i]}
             </p>
         }

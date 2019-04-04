@@ -57,8 +57,7 @@ class GripSwitch extends Component{
                 <h3>3 sets overhand</h3>
                 <h3>3 sets palms inward, pinkies together</h3>
                 <h3>3 sets wide grip</h3>
-                <h2>REST</h2>
-                <h3>60 seconds</h3>
+                <h2>REST: 60 seconds</h2>
                 <GripSwitchInputs />
                 <GripSwitchSets 
                     date={this.state.date}

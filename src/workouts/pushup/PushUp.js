@@ -44,8 +44,8 @@ export default class PushUp extends Component{
                 <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
                 <h1>EVERY DAY!</h1>
                 <h3>3 max effort sets</h3>
-                <h3>Each set should be separated by at least 10 minutes</h3>
                 <h3>Push Ups should be done when you start your day</h3>
+                <h3>Each set should be separated by at least 10 minutes</h3>
                 <PushUpInput/>
                 <PushUpSets
                     date={this.state.date} 

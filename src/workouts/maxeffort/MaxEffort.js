@@ -52,8 +52,7 @@ class MaxEffort extends Component{
                 <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
                 <h1>DAY 1: MAX EFFORT</h1>
                 <h3>5 max effort sets</h3>
-                <h2>REST</h2>
-                <h3>90 seconds</h3>
+                <h2>REST : 90 seconds</h2>
                 <MaxEffortInput/>
                 <MaxEffortSets
                     date={this.state.date} 

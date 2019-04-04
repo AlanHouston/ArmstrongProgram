@@ -49,8 +49,7 @@ export default class MaxDay extends Component{
             <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
             <h1>DAY 4: MAX DAY</h1>
             <h3>Max number of training sets</h3>
-            <h2>REST</h2>
-            <h3>60 seconds</h3>
+            <h2>REST: 60 seconds</h2>
             <MaxDayInputs/>
             <MaxDaySets
                 date={this.state.date}

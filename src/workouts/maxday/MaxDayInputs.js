@@ -24,48 +24,50 @@ export default class MaxDay extends Component{
             this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                let newSet={
-                    method:"POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        date:newDate,
-                        reps:this.state.reps,
-                        totalSets:this.state.totalSets,
-                        lastSet:this.state.lastSet,
-                        total:this.state.total
-                    })
-                }
+                if(!isNaN(this.state.reps)&&
+                    !isNaN(this.state.lastSet)&&
+                    !isNaN(this.state.lastSet)){
+                    let newSet={
+                        method:"POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                            date:newDate,
+                            reps:this.state.reps,
+                            totalSets:this.state.totalSets,
+                            lastSet:this.state.lastSet,
+                            total:this.state.total
+                        })
+                    }
                 fetch("http://localhost:3000/maxday", newSet).then((res)=>{
                     return res.json().then(this.changeContent(1));
                 })
-                }}>
-                Reps per Set<input type="number" onChange={(e)=>{
+                }}}>
+                Reps per Set<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({reps:e.target.value})
                 }}/>
                 <br/>
 
-                Total Number of Complete Sets<input type="number" onChange={(e)=>{
+                Total Number of Complete Sets<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({totalSets:e.target.value})
                 }}/>
                 <br/>
 
-                If your final set was incomplete, how many reps did you complete?<input type="number" onChange={(e)=>{
+                If your final set was incomplete, how many reps did you complete?<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({lastSet:e.target.value})
                 }}/><br/>
 
                 <button className="homeButton" type='submit' onClick={()=>{
                     this.getTotal();
-                }}>Enter</button>
+                }}>Complete Set</button>
             </form>
         }
         else if(this.state.whatToShow === 1){
             this.content = 
                 <div>
-                    <button>Home</button><br/>
-                    <div>This Session: {this.state.totalSets} Full Sets of {this.state.reps},
+                    <p>This Session: {this.state.totalSets} Full Sets of {this.state.reps},
                         Remainder: {this.state.lastSet}, 
                         Total: {this.state.total}
-                    </div>
+                    </p>
                     {/* <button onClick={()=>{this.changeContent(0)}}>Edit</button> */}
                     {/* Will need to move the fetch call to the Home button when implementing edit button */}
                 </div>

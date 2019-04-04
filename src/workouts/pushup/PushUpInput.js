@@ -26,45 +26,46 @@ export default class PushUpInput extends Component{
         this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                let newSet={
-                    method:"POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        date:newDate,
-                        one:this.state.one,
-                        two:this.state.two,
-                        three:this.state.three,
-                        total:this.state.total
-                    })
-                }
+                if(!isNaN(this.state.one)&&
+                    !isNaN(this.state.two)&&
+                    !isNaN(this.state.three)){
+                    let newSet={
+                        method:"POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({
+                            date:newDate,
+                            one:this.state.one,
+                            two:this.state.two,
+                            three:this.state.three,
+                            total:this.state.total
+                        })
+                    }
                 fetch("http://localhost:3000/pushup", newSet).then((res)=>{
                     return res.json();
                 }).then(this.changeContent(1))
-                }}>
-                Set One<input type="number" onChange={(e)=>{
+                }}}>
+                Set One<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({one:e.target.value})
                 }}/><br/>
-                Set Two<input type="number" onChange={(e)=>{
+                Set Two<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({two:e.target.value})
                 }}/><br/>
-                Set Three<input type="number" onChange={(e)=>{
+                Set Three<input className="inputMarg" type="number" min="0" onChange={(e)=>{
                     this.setState({three:e.target.value})
                 }}/><br/>
                 <button className="homeButton" type='submit' onClick={()=>{    
                     this.getTotal();
-                }}>Enter</button>
+                }}>Complete Set</button>
             </form>
         }else if(this.state.whatToShow === 1){
             this.content = 
-                <div>
-                    <button>Home</button><br/>
-                    <div>This Session: 
-                        One: {this.state.one}, 
-                        Two: {this.state.two}, 
-                        Three: {this.state.three}, 
-                        Total: {this.state.total}
-                    </div>
-                </div>
+                <p>This Session: 
+                    One: {this.state.one}, 
+                    Two: {this.state.two}, 
+                    Three: {this.state.three}, 
+                    Total: {this.state.total}
+                </p>
+                
         }
             
         return(

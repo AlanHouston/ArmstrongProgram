@@ -5,7 +5,7 @@ export default function PyramidSets(props){
     if(props.date.length>0){
     showSets=props.date.map((d,i)=>{
         return <p key={i}>
-        {d}:Trying {props.missed[i]}, 
+        {d}: Trying {props.missed[i]}, 
         Failed on: {props.last[i]}, 
         Max: {props.max[i]}, 
         Total: {props.total[i]}

@@ -1,15 +1,16 @@
 import React from 'react'
+// import { Container, Row, Col } from 'reactstrap';
 
 function MaxEffortSets(props){
     let showSets;
     if(props.date.length>0){
         showSets=props.date.map((d,i)=>{
             return <p key={i}>
-            {d}: One: {props.setOne[i]}, 
-            Two: {props.setTwo[i]}, 
-            Three: {props.setThree[i]}, 
-            Four: {props.setFour[i]}, 
-            Five: {props.setFive[i]}, 
+            {d}: &#40;1&#41;: {props.setOne[i]}, 
+            &#40;2&#41;: {props.setTwo[i]}, 
+            &#40;3&#41;: {props.setThree[i]}, 
+            &#40;4&#41;: {props.setFour[i]}, 
+            &#40;5&#41;: {props.setFive[i]}, 
             Total: {props.total[i]}
             </p>
         }
