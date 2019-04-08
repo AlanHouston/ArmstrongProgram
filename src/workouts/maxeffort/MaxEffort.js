@@ -3,6 +3,7 @@ import MaxEffortSets from './MaxEffortSets';
 import MaxEffortInput from './MaxEffortInput';
 
 class MaxEffort extends Component{
+    //state stores data from previous workouts
     state={
         date:[],
         setOne:[],
@@ -14,6 +15,7 @@ class MaxEffort extends Component{
     }
 
     componentDidMount(){
+        //fetch call builds these arrays which populates state
         let dateArr=[];
         let setOneArr=[];
         let setTwoArr=[];
@@ -24,7 +26,7 @@ class MaxEffort extends Component{
         fetch("http://localhost:3000/maxeffort")
             .then(r=>r.json())
             .then(d=>{
-                d.reverse().map(t=>{
+                d.reverse().map(t=>{ //reverse array so data shows most recent data first
                     dateArr.push(t.date)
                     setOneArr.push(t.setOne)
                     setTwoArr.push(t.setTwo)
@@ -53,7 +55,9 @@ class MaxEffort extends Component{
                 <h1>DAY 1: MAX EFFORT</h1>
                 <h3>5 max effort sets</h3>
                 <h2>REST : 90 seconds</h2>
+                {/* input component renders the input forms- upon completion, renders session results */}
                 <MaxEffortInput/>
+                {/* sets component renders past workout data */}
                 <MaxEffortSets
                     date={this.state.date} 
                     setOne={this.state.setOne} 

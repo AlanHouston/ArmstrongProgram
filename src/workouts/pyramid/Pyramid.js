@@ -3,6 +3,7 @@ import PyramidSets from './PyramidSets'
 import PyramidInputs from './PyramidInputs';
 
 class Pyramid extends Component{
+    //state stores data from previous workouts
     state={
         date:[],
         missed:[],
@@ -12,6 +13,7 @@ class Pyramid extends Component{
     }
     
     componentDidMount(){
+        //fetch call builds these arrays which populates state
         let dateArr=[]
         let missedArr=[];
         let lastArr=[];
@@ -20,7 +22,7 @@ class Pyramid extends Component{
         fetch("http://localhost:3000/pyramid")
             .then(r=>r.json())
             .then(d=>{
-                d.reverse().map(t=>{
+                d.reverse().map(t=>{ //reverse array so data shows most recent data first
                     dateArr.push(t.date)
                     missedArr.push(t.missedSet)
                     lastArr.push(t.lastSet)
@@ -46,7 +48,9 @@ class Pyramid extends Component{
                 <h3>Pyramid of sets of 1, 2, 3, 4, etc. until missed set</h3>
                 <h3>Then one max set</h3>
                 <h2>REST: 10 seconds per pull-up in last set</h2>
+                {/* input component renders the input forms- upon completion, renders session results */}
                 <PyramidInputs />
+                {/* sets component renders past workout data */}
                 <PyramidSets 
                     date={this.state.date} 
                     missed={this.state.missed} 

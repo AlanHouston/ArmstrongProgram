@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 export default class PushUpInput extends Component{
     state={
-        whatToShow:0,
+        whatToShow:0 //whatToShow: 0 renders inputs, 1 renders results upon completion 
     }
 
     content={}
-
+    //content alternates between rendering inputs and session results
     changeContent=(x)=>{
         this.setState({whatToShow:x})
     }
 
+    // formula to calculate total number of pullups per session
     getTotal=()=>{
         let total= Number(this.state.one)
         +Number(this.state.two)
@@ -26,9 +27,10 @@ export default class PushUpInput extends Component{
         this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                if(!isNaN(this.state.one)&&
-                    !isNaN(this.state.two)&&
-                    !isNaN(this.state.three)){
+                // conditionals to validate inputs, empty string to prevent deleted inputs from validating
+                if(!isNaN(this.state.one) && this.state.one !== '' &&
+                    !isNaN(this.state.two)&& this.state.two !== '' &&
+                    !isNaN(this.state.three)&& this.state.three !== ''){
                     let newSet={
                         method:"POST",
                         headers: {"Content-Type": "application/json"},
@@ -40,6 +42,8 @@ export default class PushUpInput extends Component{
                             total:this.state.total
                         })
                     }
+                    //post sends current session data to database and sets state to render, 
+                    //submit button calculates total, second .then renders results
                 fetch("http://localhost:3000/pushup", newSet).then((res)=>{
                     return res.json();
                 }).then(this.changeContent(1))

@@ -14,6 +14,7 @@ exports.create =  function create(req, res) {
         date:newDate,
         missedSet:req.body.missedSet,
         lastSet:req.body.lastSet,
+        max:req.body.max,
         total:req.body.total
     });
     newPyramid.save();

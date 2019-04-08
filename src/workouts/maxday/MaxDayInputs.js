@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 export default class MaxDay extends Component{
     state={
-        whatToShow:0
+        whatToShow:0 //whatToShow: 0 renders inputs, 1 renders results upon completion 
     }
 
     content={}
-
+    //content alternates between rendering inputs and session results
     changeContent=(x)=>{
         this.setState({whatToShow:x})
     }
 
+    // formula to calculate total number of pullups per session
     getTotal=()=>{
         let total=Number(this.state.reps) * Number(this.state.totalSets) + Number(this.state.lastSet);
         this.setState({total});
@@ -24,9 +25,10 @@ export default class MaxDay extends Component{
             this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                if(!isNaN(this.state.reps)&&
-                    !isNaN(this.state.lastSet)&&
-                    !isNaN(this.state.lastSet)){
+                // conditionals to validate inputs, empty string to prevent deleted inputs from validating
+                if(!isNaN(this.state.reps) && this.state.reps !== '' &&
+                    !isNaN(this.state.totalSets) && this.state.totalSets !== '' &&
+                    !isNaN(this.state.lastSet) && this.state.lastSet !== ''){
                     let newSet={
                         method:"POST",
                         headers: {"Content-Type": "application/json"},
@@ -38,6 +40,8 @@ export default class MaxDay extends Component{
                             total:this.state.total
                         })
                     }
+                    //post sends current session data to database and sets state to render, 
+                    //submit button calculates total, second .then renders results
                 fetch("http://localhost:3000/maxday", newSet).then((res)=>{
                     return res.json().then(this.changeContent(1));
                 })
@@ -68,7 +72,6 @@ export default class MaxDay extends Component{
                         Remainder: {this.state.lastSet}, 
                         Total: {this.state.total}
                     </p>
-                    {/* <button onClick={()=>{this.changeContent(0)}}>Edit</button> */}
                     {/* Will need to move the fetch call to the Home button when implementing edit button */}
                 </div>
         }

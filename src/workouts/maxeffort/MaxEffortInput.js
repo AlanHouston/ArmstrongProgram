@@ -3,15 +3,16 @@ import React, { Component } from 'react';
 
 export default class MaxEffortInput extends Component{
     state={
-        whatToShow:0,
+        whatToShow:0 //whatToShow: 0 renders inputs, 1 renders results upon completion 
     }
 
     content={}
-
+    //content alternates between rendering inputs and session results
     changeContent=(x)=>{
         this.setState({whatToShow:x})
     }
 
+    // formula to calculate total number of pullups per session
     getTotal=()=>{
         let total= Number(this.state.repsOne)
         +Number(this.state.repsTwo)
@@ -29,11 +30,12 @@ export default class MaxEffortInput extends Component{
         this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                if(!isNaN(this.state.repsOne)&&
-                    !isNaN(this.state.repsTwo)&&
-                    !isNaN(this.state.repsThree)&&
-                    !isNaN(this.state.repsFour)&&
-                    !isNaN(this.state.repsFive)){
+                // conditionals to validate inputs, empty string to prevent deleted inputs from validating
+                if(!isNaN(this.state.repsOne) && this.state.repsOne !== '' &&
+                    !isNaN(this.state.repsTwo) && this.state.repsTwo !== '' &&
+                    !isNaN(this.state.repsThree) && this.state.repsThree !== '' &&
+                    !isNaN(this.state.repsFour) && this.state.repsFour !== '' &&
+                    !isNaN(this.state.repsFive) && this.state.repsFive !== ''){
                         let newSet={
                             method:"POST",
                             headers: {"Content-Type": "application/json"},
@@ -47,6 +49,8 @@ export default class MaxEffortInput extends Component{
                                 total:this.state.total
                             })
                         }
+                        //post sends current session data to database and sets state to render, 
+                        //submit button calculates total, second .then renders results
                     fetch("http://localhost:3000/maxeffort", newSet)
                     .then((res)=>{return res.json();})
                     .then(this.changeContent(1));
@@ -89,79 +93,3 @@ export default class MaxEffortInput extends Component{
         )
     }
 }
-
-{/* <Container className="maxEffFlex">
-    <Row classname="maxEffPar">
-        <Col xs={{ size: 'auto', offset: 5 }}>Set 1</Col>
-        <Col xs={{ size: 'auto' }}>
-            <input type="number" min="0" onChange={(e)=>{
-            this.setState({repsOne:e.target.value})
-            }}/>
-        </Col>
-    </Row>
-    <Row classname="maxEffPar">
-        <Col xs={{ size: 'auto', offset: 5 }}>Set 2</Col>
-        <Col xs={{ size: 'auto' }}>
-            <input type="number" min="0" onChange={(e)=>{
-                this.setState({repsTwo:e.target.value})
-            }}/>
-        </Col>
-    </Row>
-    <Row classname="maxEffPar">
-        <Col xs={{ size: 'auto', offset: 5 }}>Set 3</Col>
-        <Col xs={{ size: 'auto' }}>
-            <input type="number" min="0" onChange={(e)=>{
-                this.setState({repsThree:e.target.value})
-            }}/>
-        </Col>
-    </Row>
-    <Row classname="maxEffPar">
-        <Col xs={{ size: 'auto', offset: 5 }}>Set 4</Col>
-        <Col xs={{ size: 'auto' }}>
-            <input type="number" min="0" onChange={(e)=>{
-                this.setState({repsFour:e.target.value})
-            }}/>
-        </Col>
-    </Row>
-    <Row classname="maxEffPar">
-        <Col xs={{ size: 'auto', offset: 5 }}>Set 5</Col>
-        <Col xs={{ size: 'auto' }}>
-            <input type="number" min="0" onChange={(e)=>{
-                this.setState({repsFive:e.target.value})
-            }}/>
-        </Col>
-    </Row>
-</Container> */}
-{/* <container id="maxEffFlex">
-    <div className="maxEffPar">
-        <div>Set 1</div>
-        <input type="number" onChange={(e)=>{
-        this.setState({repsOne:e.target.value})
-        }}/>
-    </div>
-    <div className="maxEffPar">
-        <div>Set 2</div>
-        <input type="number" onChange={(e)=>{
-            this.setState({repsTwo:e.target.value})
-        }}/>
-    </div>
-    <div className="maxEffPar">
-        <div>Set 3</div>
-        <input type="number" onChange={(e)=>{
-            this.setState({repsThree:e.target.value})
-        }}/>
-    </div>
-    <div className="maxEffPar">
-        <div>Set 4</div>
-        <input type="number" onChange={(e)=>{
-            this.setState({repsFour:e.target.value})
-        }}/>
-    </div>
-    <div className="maxEffPar">
-        <div>Set 5</div>
-        <input type="number" onChange={(e)=>{
-            this.setState({repsFive:e.target.value})
-        }}/>
-    </div>
-</container> */}
-

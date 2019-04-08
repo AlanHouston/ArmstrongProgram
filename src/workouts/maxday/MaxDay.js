@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import MaxDaySets from './MaxDaySets';
 import MaxDayInputs from './MaxDayInputs';
 
-    // date: String,
-    // reps: Number,
-    // totalSets: Number,
-    // lastSet: Number,
-    // total: Number
-
 export default class MaxDay extends Component{
+    //state stores data from previous workouts
     state={
         date:[],
         reps:[],
@@ -18,6 +13,7 @@ export default class MaxDay extends Component{
     }
 
     componentDidMount(){
+        //fetch call builds these arrays which populates state
         let dateArr=[];
         let repsArr=[];
         let totalSetsArr=[];
@@ -26,7 +22,7 @@ export default class MaxDay extends Component{
         fetch("http://localhost:3000/maxday")
             .then(r=>r.json())
             .then(d=>{
-                d.reverse().map(t=>{
+                d.reverse().map(t=>{ //reverse array so data shows most recent data first
                     dateArr.push(t.date)
                     repsArr.push(t.reps)
                     totalSetsArr.push(t.totalSets)
@@ -50,7 +46,9 @@ export default class MaxDay extends Component{
             <h1>DAY 4: MAX DAY</h1>
             <h3>Max number of training sets</h3>
             <h2>REST: 60 seconds</h2>
+            {/* input component renders the input forms- upon completion, renders session results */}
             <MaxDayInputs/>
+            {/* sets component renders past workout data */}
             <MaxDaySets
                 date={this.state.date}
                 reps={this.state.reps}

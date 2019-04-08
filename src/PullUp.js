@@ -4,7 +4,6 @@ import MaxEffort from './workouts/maxeffort/MaxEffort'
 import Pyramid from './workouts/pyramid/Pyramid'
 import GripSwitch from './workouts/gripswitch/GripSwitch'
 import MaxDay from './workouts/maxday/MaxDay'
-// import DayFive from './DayFive'
 
 class PullUp extends Component{
     state={
@@ -18,7 +17,7 @@ class PullUp extends Component{
     render(){
         let whatToRender = null;
         if(this.state.whatToDisplay ===0){
-            whatToRender = <PullUpHome changePullUpView={this.changePullUpView}/>
+            whatToRender = <PullUpHome changeView={this.props.changeView} changePullUpView={this.changePullUpView}/>
         }
         if(this.state.whatToDisplay ===1){
             whatToRender = <MaxEffort changeView={this.props.changeView}/>

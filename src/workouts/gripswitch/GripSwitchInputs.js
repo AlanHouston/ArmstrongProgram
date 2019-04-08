@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 export default class GripSwitchInputs extends Component{
     state={
-        whatToShow:0
+        whatToShow:0 //whatToShow: 0 renders inputs, 1 renders results upon completion 
     }
 
     content={}
-
+    //content alternates between rendering inputs and session results
     changeContent=(x)=>{
         this.setState({whatToShow:x})
     }
 
+    // formula to calculate total number of pullups per session
     getTotal=()=>{
         let total=Number(this.state.over)*Number(this.state.wideSets)
         +Number(this.state.in)*Number(this.state.inSets)
@@ -26,12 +27,13 @@ export default class GripSwitchInputs extends Component{
             this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                if(!isNaN(this.state.over)&&
-                !isNaN(this.state.in)&&
-                !isNaN(this.state.wide)&&
-                !isNaN(this.state.overSets)&&
-                !isNaN(this.state.inSets)&&
-                !isNaN(this.state.wideSets)) {
+                // conditionals to validate inputs, empty string to prevent deleted inputs from validating
+                if(!isNaN(this.state.over) && this.state.over !== '' &&
+                    !isNaN(this.state.in) && this.state.in !== '' &&
+                    !isNaN(this.state.wide) && this.state.wide !== '' &&
+                    !isNaN(this.state.overSets) && this.state.overSets !== '' &&
+                    !isNaN(this.state.inSets) && this.state.insets !== '' &&
+                    !isNaN(this.state.wideSets)) {
                     let newSet={
                         method:"POST",
                         headers: {"Content-Type": "application/json"},
@@ -46,6 +48,8 @@ export default class GripSwitchInputs extends Component{
                             total:this.state.total
                         })
                     }
+                    //post sends current session data to database and sets state to render, 
+                    //submit button calculates total, second .then renders results
                 fetch("http://localhost:3000/gripswitch", newSet).then((res)=>{
                     return res.json().then(this.changeContent(1));
                 })
@@ -80,6 +84,7 @@ export default class GripSwitchInputs extends Component{
                     this.setState({wideSets:e.target.value})
                 }}></input>
                 <br/>
+                {/* data from these inputs will individually line up differently when rendering: y sets of x */}
 
                 <button className="homeButton" type='submit' onClick={()=>{
                     this.getTotal();
@@ -95,7 +100,6 @@ export default class GripSwitchInputs extends Component{
                         Wide Grip: {this.state.wideSets} Sets of {this.state.wide};
                         Total: {this.state.total}
                     </p>
-                    {/* <button onClick={()=>{this.changeContent(0)}}></button> */}
                 </div>
         }
 

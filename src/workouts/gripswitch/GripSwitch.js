@@ -3,6 +3,7 @@ import GripSwitchSets from './GripSwitchSets';
 import GripSwitchInputs from './GripSwitchInputs';
 
 class GripSwitch extends Component{
+    //state stores data from previous workouts
     state={
         date:[],
         overHandReps: [],
@@ -13,8 +14,9 @@ class GripSwitch extends Component{
         wideSets: [],
         total:[]
     }
-
+    
     componentDidMount(){
+        //fetch call builds these arrays which populates state
         let dateArr=[];
         let overHandRepsArr=[];
         let inwardRepsArr=[];
@@ -26,7 +28,7 @@ class GripSwitch extends Component{
         fetch("http://localhost:3000/gripswitch")
             .then(r=>r.json())
             .then(d=>{
-                d.reverse().map(t=>{
+                d.reverse().map(t=>{ //reverse array so data shows most recent data first
                     dateArr.push(t.date)
                     overHandRepsArr.push(t.overHandReps)
                     inwardRepsArr.push(t.inwardReps)
@@ -58,7 +60,9 @@ class GripSwitch extends Component{
                 <h3>3 sets palms inward, pinkies together</h3>
                 <h3>3 sets wide grip</h3>
                 <h2>REST: 60 seconds</h2>
+                {/* input component renders the input forms- upon completion, renders session results */}
                 <GripSwitchInputs />
+                {/* sets component renders past workout data */}
                 <GripSwitchSets 
                     date={this.state.date}
                     overHandReps={this.state.overHandReps}

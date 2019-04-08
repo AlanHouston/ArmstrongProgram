@@ -10,10 +10,3 @@ var pyramidSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Pyramid', pyramidSchema);
-
-// {
-//     "date":"3/12/2019",
-//     "missedSet": ,
-//     "lastSet"; ,
-//     "total": 
-// }

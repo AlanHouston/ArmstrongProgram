@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 export default class PyramidInputs extends Component{
     state={
-        whatToShow:0,
+        whatToShow:0 //whatToShow: 0 renders inputs, 1 renders results upon completion 
     }
 
     content={}
-
+    //content alternates between rendering inputs and session results
     changeContent=(x)=>{
         this.setState({whatToShow:x})
     }
 
+    // formula to calculate total number of pullups per session
     getTotal=()=>{
         let n=Number(this.state.missed);
         let total=((n*(n+1))/2) + Number(this.state.last) + Number(this.state.max)
@@ -25,9 +26,10 @@ export default class PyramidInputs extends Component{
             this.content=
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                if(!isNaN(this.state.missed)&&
-                    !isNaN(this.state.last)&&
-                    !isNaN(this.state.max)){
+                // conditionals to validate inputs, empty string to prevent deleted inputs from validating
+                if(!isNaN(this.state.missed) && this.state.missed !==''&&
+                    !isNaN(this.state.last) && this.state.last !== ''&&
+                    !isNaN(this.state.max) && this.state.max !== ''){
                     let newSet={
                         method:"POST",
                         headers: {"Content-Type": "application/json"},
@@ -38,7 +40,9 @@ export default class PyramidInputs extends Component{
                             max:this.state.max,
                             total:this.state.total
                         })
-                    }
+                    } 
+                    //post sends current session data to database and sets state to render, 
+                    //submit button calculates total, second .then renders results
                 fetch("http://localhost:3000/pyramid", newSet).then((res)=>{
                     return res.json().then(this.changeContent(1));
                 })

@@ -4,7 +4,8 @@ export default function PullUpHome(props){
     
     return (
         <div className="App">
-        {/* instructions here - 'on day five, choose the workout that was the hardest from the week, it may change from week to week'*/}
+        <button className="homeButton" onClick={()=>{this.props.changeView(0)}}>Return to Home</button>
+        <br/>
         <button className="buttonStyle" onClick={()=>props.changePullUpView(1)}>Day 1 : Max Effort</button>
         <br/>
         <button className="buttonStyle" onClick={()=>props.changePullUpView(2)}>Day 2 : Pyramid</button>

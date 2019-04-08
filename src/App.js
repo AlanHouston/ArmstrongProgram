@@ -3,14 +3,14 @@ import './App.css';
 import Home from './Home'
 import PullUp from './PullUp'
 import PushUp from './workouts/pushup/PushUp'
-import Stats from './stats/index'
+// import Stats from './stats/index'
 
 
 class App extends Component {
   state={
     whatToDisplay: 0,
   }
-
+// controls view between home >> pushup vs pullup
   changeView = (view)=>{
     this.setState({whatToDisplay:view})
   }
@@ -26,9 +26,9 @@ class App extends Component {
     else if(this.state.whatToDisplay === 2){
       whatToRender = <PushUp changeView={this.changeView}/>
     }
-    else if(this.state.whatToDisplay === 3){
-      whatToRender = <Stats changeView={this.changeView}/>
-    }
+    // else if(this.state.whatToDisplay === 3){
+    //   whatToRender = <Stats changeView={this.changeView}/>
+    // }
     return (
       <div className="App">
         {whatToRender}

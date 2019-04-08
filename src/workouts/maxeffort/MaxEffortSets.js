@@ -1,11 +1,11 @@
 import React from 'react'
-// import { Container, Row, Col } from 'reactstrap';
 
 function MaxEffortSets(props){
     let showSets;
     if(props.date.length>0){
+        // map by date, use array position to correlate other data
         showSets=props.date.map((d,i)=>{
-            return <p key={i}>
+        return <p key={i}>
             {d}: &#40;1&#41;: {props.setOne[i]}, 
             &#40;2&#41;: {props.setTwo[i]}, 
             &#40;3&#41;: {props.setThree[i]}, 
