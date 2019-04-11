@@ -13,16 +13,15 @@ In the appliction, for each workout, past data automatically reloads at the bott
 Functionality is basic for now, but the data is maintained in mlab.
 
 Functionality to come:
-*Styling
-*Client side routing
 *authentication
 *Edit buttons: User is currently unable to edit their current session data upon completion
-*Pushup tracker: the program requires three max sets of pushups every morning of the five workout days
+*Timer
+*Data graph view option
 
 I encourage everyone to give this program a shot! If the program is too advanced, the creator has a beginner program found here http://armstrongpullupprogram.com/the-pre-armstrong-workout-for-pull-up-beginners/. 
-If your arms are huge, you are a tough guy/gal, or you just find this program elementary, he also created and advanced program found here http://armstrongpullupprogram.com/armstrong-advanced/.
+If your arms are huge, you are a tough guy/gal, or you just find this program elementary, he also created an advanced program found here http://armstrongpullupprogram.com/armstrong-advanced/.
 
 I have not created an app for these, but I might some day! 
 
-Thanks for checking out my handsome coding!
+Thanks for checking out my delicious coding!
 
