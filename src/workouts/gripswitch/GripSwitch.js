@@ -25,7 +25,7 @@ class GripSwitch extends Component{
         let inwardSetsArr=[];
         let wideSetsArr=[];
         let totalArr=[];
-        fetch("http://localhost:3000/gripswitch")
+        fetch("https://armstrongserver.herokuapp.com/gripswitch")
             .then(r=>r.json())
             .then(d=>{
                 d.reverse().map(t=>{ //reverse array so data shows most recent data first

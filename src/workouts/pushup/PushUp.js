@@ -18,7 +18,7 @@ export default class PushUp extends Component{
         let twoArr=[];
         let threeArr=[];
         let totalArr=[];
-        fetch("http://localhost:3000/pushup")
+        fetch("https://armstrongserver.herokuapp.com/pushup")
             .then(r=>r.json())
             .then(d=>{
                 d.reverse().map(t=>{

@@ -51,7 +51,7 @@ export default class MaxEffortInput extends Component{
                         }
                         //post sends current session data to database and sets state to render, 
                         //submit button calculates total, second .then renders results
-                    fetch("http://localhost:3000/maxeffort", newSet)
+                    fetch("https://armstrongserver.herokuapp.com/maxeffort", newSet)
                     .then((res)=>{return res.json();})
                     .then(this.changeContent(1));
                 }}}>

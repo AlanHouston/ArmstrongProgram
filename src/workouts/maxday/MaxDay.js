@@ -19,7 +19,7 @@ export default class MaxDay extends Component{
         let totalSetsArr=[];
         let lastSetArr=[];
         let totalArr=[];
-        fetch("http://localhost:3000/maxday")
+        fetch("https://armstrongserver.herokuapp.com/maxday")
             .then(r=>r.json())
             .then(d=>{
                 d.reverse().map(t=>{ //reverse array so data shows most recent data first

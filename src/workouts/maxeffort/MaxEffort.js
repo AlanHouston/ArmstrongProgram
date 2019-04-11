@@ -23,7 +23,7 @@ class MaxEffort extends Component{
         let setFourArr=[];
         let setFiveArr=[];
         let totalArr=[];
-        fetch("http://localhost:3000/maxeffort")
+        fetch("https://armstrongserver.herokuapp.com/maxeffort")
             .then(r=>r.json())
             .then(d=>{
                 d.reverse().map(t=>{ //reverse array so data shows most recent data first

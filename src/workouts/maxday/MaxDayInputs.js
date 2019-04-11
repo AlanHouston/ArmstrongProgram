@@ -42,7 +42,7 @@ export default class MaxDay extends Component{
                     }
                     //post sends current session data to database and sets state to render, 
                     //submit button calculates total, second .then renders results
-                fetch("http://localhost:3000/maxday", newSet).then((res)=>{
+                fetch("https://armstrongserver.herokuapp.com/maxday", newSet).then((res)=>{
                     return res.json().then(this.changeContent(1));
                 })
                 }}}>

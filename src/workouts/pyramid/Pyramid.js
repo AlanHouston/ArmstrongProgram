@@ -19,7 +19,7 @@ class Pyramid extends Component{
         let lastArr=[];
         let maxArr=[];
         let totalArr=[];
-        fetch("http://localhost:3000/pyramid")
+        fetch("https://armstrongserver.herokuapp.com/pyramid")
             .then(r=>r.json())
             .then(d=>{
                 d.reverse().map(t=>{ //reverse array so data shows most recent data first
